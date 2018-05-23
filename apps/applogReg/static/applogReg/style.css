@@ -1,0 +1,59 @@
+body{
+    width: 900px;
+    padding-left: 10px;
+
+}
+#register{
+    display: inline-block;
+border: 2px solid black;
+padding: 0px 16px 16px;
+
+}
+
+#favQuts{
+   
+    position: relative;
+    right: -21%;
+    width: 260px;
+    display: inline-block;
+    vertical-align: top;
+    overflow: scroll;
+    height: 335px;
+    
+}
+.cont{
+    width: 272px;
+    display: inline-block;
+    vertical-align: top;
+    height: 560px;
+    overflow: scroll;
+
+}
+
+.shoBx{
+    vertical-align: top;
+    display: inline-block;
+    border: 2px solid black;
+    padding: 0px 17px 16px;
+    width: 200px;
+
+}
+
+#cntribQut{
+    display: inline-block;
+    position: relative;
+    right: 8%;
+    vertical-align: bottom;
+   
+}
+h1{
+    text-align: center;
+}
+.errorMsgs{
+    color: red;
+}
+a{
+    display: inline-block;
+    float: right;
+    padding: 5px;
+}

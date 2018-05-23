@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    {%load static%}
+    <link rel="stylesheet" href="{% static 'applogReg/style.css' %}">
+    <title>Quotes</title>
+</head>
+<body>
+
+        <h1>Hello {{user.name}}!</h1>
+        <a href="/logout">Logout</a>
+
+        {%if messages%}
+		{%for message in messages%}
+			<h4 class="errorMsgs">{{message}}>{{message}}</h4>
+		{%endfor%}
+	    {%endif%}
+        <br>
+       
+    <div class="cont">   
+        <h2>Quotable Quotes:</h2>
+        
+        
+        {%for quote in nonFav %}
+        <div class="shoBx" > 
+        
+        <p>{{quote.quoted_by}}: {{quote.content}}</p>
+        <a href="/add_fav/{{quote.id}}"><button>Add to My List</button></a>
+        <p>Posted by: <a href="/view_user/{{quote.user.id}}">{{quote.user.name}}</a>  </p>
+       
+        </div>
+        {%endfor%}
+    </div>
+    
+
+
+
+
+        <div id="favQuts">
+        <h2>Your Favorites:</h2>
+        
+        {%for favQuote in user.user_fav_quotes.all %}
+        <div class="shoBx">
+        <p>{{favQuote.quoted_by}}: {{favQuote.content}}</p>
+        <a href="/remove_fav_quote/{{favQuote.id}}"><button>Remove From List</button></a>
+        <p>Posted by: <a href="/view_user/{{favQuote.user.id}}">{{favQuote.user.name}}</a>  </p>
+        </div>
+        {%endfor%}
+
+        </div>
+
+
+
+
+
+    <div id="cntribQut">
+        <h2>Contribute a Qoute:</h2>
+
+    <form action="/add_quote" method="post">
+        <p>Quoted By: <input type="text" name="quoted_by" ></p>
+        <p>Message : <input type="text" name="content" ></p>
+        
+        {% csrf_token %} 
+        <input type="submit" value="Submit">
+    </form>
+    </div>
+
+</body>
+</html>
+
